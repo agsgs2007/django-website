@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>Hello {{ user.name }}</h1>
+<li>age {{ user.age }}</li>
+<li>sex{{ user.sex }}</li>
+<li>say {{ user.say }}</li>
+
+{% if user.age < 18 %}
+    未成年
+{% else %}
+    成年
+{% endif %}
+
+{% if not user1 %}
+    <li>user1不存在</li>
+{% endif %}
+
+{% if not user.name %}
+    <li>username为空</li>
+{% endif %}
+
+<br/>
+{% for book in book_list %}
+    {% if forloop.first %}
+        <li>begin</li>
+        <br/>
+    {% endif %}
+    <li>{{ book |upper |lower |capfirst }}</li>
+{#    <li>forloop.counter:{{ forloop.counter }}</li>#}
+{#    <li>forloop.counter0:{{ forloop.counter0 }}</li>#}
+{#    <li>forloop.revcounter:{{ forloop.revcounter }}</li>#}
+{#    <li>forloop.revcounter0:{{ forloop.revcounter0 }}</li>#}
+    {% if forloop.last %}
+        <br/>
+        <li>end</li>
+    {% endif %}
+{% endfor %}
+
+<br/>
+
+{% for key,value in user.items %}
+    <li>{{ key }}:{{ value }}</li>
+{% endfor %}
+
+{#{% load percent %}#}
+<h1>today is {{ today | date:"Y-m-d"  }}</h1>
+
+</body>
+</html>
