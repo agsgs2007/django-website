@@ -85,7 +85,7 @@ def student(request):
     singlestudent.name = "tom"
     singlestudent.age = 12
     singlestudent.intime = "2015-2-1"
-    singlestudent.save()
+    singlestudent.save()   #修改一个学生，并且保存至数据库
 
     singlestudent.delete()
     # batch update data
